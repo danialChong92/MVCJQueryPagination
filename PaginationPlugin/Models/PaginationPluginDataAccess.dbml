@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Announcements" Class="PaginationPluginDataAccessDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=DANIAL;Initial Catalog=Announcements;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="AnnouncementsConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.AnnouncementData" Member="AnnouncementDatas">
+    <Type Name="AnnouncementData">
+      <Column Name="AnnouncementID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="AnnouncementDate" Type="System.DateTime" DbType="DateTime2 NOT NULL" CanBeNull="false" />
+      <Column Name="AnnouncementContent" Type="System.String" DbType="NVarChar(3000)" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

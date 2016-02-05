@@ -1,0 +1,38 @@
+﻿@model IEnumerable<PaginationPlugin.Models.AnnouncementData>
+
+<script src="~/Scripts/jquery-1.9.1.js"></script>
+<script src="~/Scripts/MyPaginationPlugin.js"></script>
+<link href="~/Content/Site.css" rel="stylesheet" />
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>MVC Pagination Plugin with AJAX</h1>
+
+  @*LINQ to SQL References : https://www.youtube.com/watch?v=dNgkIhuoIE0*@
+@*@if(Model !=null){
+    foreach (var items in Model)
+    {
+        <div>@items.AnnouncementID</div>
+        <div>@items.AnnouncementDate</div>
+        <div>@items.AnnouncementContent</div>
+
+    }
+
+}*@
+<div id="dataTable"></div>
+<br/>
+<div id="paginationLocation"></div>
+
+<script type="text/javascript">
+    $("#paginationLocation").tablePagination({
+        totalRecord: @*1000,*@@Model.Count(),
+        pageEnumeration: [10, 20, 50],
+        startPage: 1,
+        endPage: 10,
+        pageUIIndex: 10,  //Increment Counter for next pagination construct, must tally with end-page value. Hint: ((endPage-startPage)+1)
+        data: @Html.Raw(Json.Encode(Model))
+        });
+</script>
